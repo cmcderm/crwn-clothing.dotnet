@@ -26,7 +26,7 @@ namespace ReactDotnet
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/build";
+                configuration.RootPath = "crwn-clothing/build";
             });
         }
 
@@ -59,7 +59,7 @@ namespace ReactDotnet
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "crwn-clothing";
 
                 if (env.IsDevelopment())
                 {
