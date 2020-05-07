@@ -1,0 +1,3 @@
+[submodule "crwn-clothing"]
+	path = crwn-clothing
+	url = git@github.com:loligator/crwn-clothing.git
