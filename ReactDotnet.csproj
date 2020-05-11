@@ -7,6 +7,7 @@
 		<IsPackable>false</IsPackable>
 		<SpaRoot>crwn-clothing\</SpaRoot>
 		<DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+		<UserSecretsId>c91fe894-5dd1-40c4-8bd5-c236d2c4e86d</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>

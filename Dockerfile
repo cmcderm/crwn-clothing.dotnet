@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
 RUN apt update
 RUN apt install -y nodejs npm
 
-EXPOSE 5000 5001 80
+EXPOSE 5000 5001 443
 
 WORKDIR /app
 

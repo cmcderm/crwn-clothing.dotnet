@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+    webapp:
+        build: .
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - ASPNETCORE_URLS=https://+:443
+            - USER_SECRETS_ID=c91fe894-5dd1-40c4-8bd5-c236d2c4e86d
+        ports:
+            - 5001:443
+        volumes:
+            - ${HOME}/.microsoft/usersecrets/${USER_SECRETS_ID}:/root/.microsoft/usersecrets/${USER_SECRETS_ID}
+            #- ${APPDATA}/Microsoft/UserSecrets/$USER_SECRETS_ID:/root/.microsoft/usersecrets/$USER_SECRETS_ID
