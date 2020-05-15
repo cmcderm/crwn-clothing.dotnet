@@ -6,4 +6,4 @@ then
 	exit
 fi
 
-docker run --rm -p 8080:5001 crwn-clothing
+docker run --rm -p 8080:5000 crwn-clothing

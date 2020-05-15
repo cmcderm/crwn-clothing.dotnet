@@ -18,7 +18,7 @@ namespace ReactDotnet {
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices (IServiceCollection services) {
 			services.Configure<ForwardedHeadersOptions> (options => {
-				options.KnownProxies.Add (IPAddress.Parse ("10.0.0.100"));
+				options.KnownProxies.Add (IPAddress.Parse ("127.0.0.1"));
 			});
 
 			services.AddControllersWithViews ();
@@ -31,6 +31,10 @@ namespace ReactDotnet {
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure (IApplicationBuilder app, IWebHostEnvironment env) {
+			app.UseForwardedHeaders (new ForwardedHeadersOptions {
+				ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+			});
+
 			if (env.IsDevelopment ()) {
 				app.UseDeveloperExceptionPage ();
 			} else {
@@ -43,10 +47,6 @@ namespace ReactDotnet {
 			app.UseSpaStaticFiles ();
 
 			app.UseRouting ();
-
-			app.UseForwardedHeaders (new ForwardedHeadersOptions {
-				ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-			});
 
 			app.UseAuthentication ();
 
