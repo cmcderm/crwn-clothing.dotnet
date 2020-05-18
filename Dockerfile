@@ -1,5 +1,8 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
 
+ENV ASPNETCORE_URLS=http://+:5001
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true
+
 RUN apt update
 RUN apt install -y nodejs npm
 
