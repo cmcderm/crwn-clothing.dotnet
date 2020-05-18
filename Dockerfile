@@ -6,7 +6,8 @@ ENV DOTNET_USE_POLLING_FILE_WATCHER=true
 RUN apt update
 RUN apt install -y nodejs npm
 
-EXPOSE 5000 5001
+EXPOSE 5000
+EXPOSE 5001
 
 WORKDIR /app
 
