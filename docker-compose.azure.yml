@@ -2,12 +2,13 @@ version: '3.4'
 
 services:
     nginx:
-        image: nginx
+        context: .
+        dockerfile: ./Dockerfile-nginx
         container_name: production_nginx
         depends_on:
             - crwn-clothing
         volumes:
-            - ${WEBAPP_STORAGE_HOME}./nginx.conf:/etc/nginx/nginx.conf
+            #- ${WEBAPP_STORAGE_HOME}./nginx.conf:/etc/nginx/nginx.conf
             #- /etc/letsencrypt:/etc/letsencrypt
         ports:
             - 80:80
