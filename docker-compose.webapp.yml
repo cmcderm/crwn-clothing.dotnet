@@ -1,24 +1,19 @@
-version: '3.4'
+version 3.4
 
 services:
     nginx:
-        image: nginx
-        container_name: production_nginx
-        depends_on:
-            - crwn-clothing
-        volumes:
-            - ./nginx.conf:/etc/nginx/nginx.conf
-            #- /etc/letsencrypt:/etc/letsencrypt
+        image: loligatorcrwnclothingdotnet_nginx
+        depends-on:
+            crwn-clothing
         ports:
             - 80:80
             - 443:443
         networks:
             - nginx-proxy
 
+    
     crwn-clothing:
-        build: 
-            context: .
-            dockerfile: ./Dockerfile
+        image: loligatorcrwnclothingdotnet_crwn-clothing
         environment:
             - ASPNETCORE_ENVIRONMENT=Production
             - ASPNETCORE_URLS=http://+:5001
